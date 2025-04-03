@@ -1,0 +1,141 @@
+/* Dashboard Container */
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+    min-height: 100vh;
+  }
+  
+  /* Dashboard Title */
+  .dashboard-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #fff;
+  }
+  
+  /* Logout Button */
+  .logout-button {
+    background: #ff4d4d;
+    color: white;
+    padding: 10px;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 5px;
+    transition: 0.3s;
+  }
+  
+  .logout-button:hover {
+    background: #cc0000;
+  }
+  
+  /* Upload Form */
+  .upload-form {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  /* File Input Label */
+  .file-input input {
+    display: none;
+  }
+  
+  .file-input span {
+    background: #007bff;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .file-input span:hover {
+    background: #0056b3;
+  }
+  
+  /* Dropdown (Branch Selector) */
+  .dropdown {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 100%;
+  }
+  
+  /* Upload Button */
+  .upload-button {
+    background: #28a745;
+    color: white;
+    padding: 10px;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 5px;
+    transition: 0.3s;
+  }
+  
+  .upload-button:hover {
+    background: #218838;
+  }
+  
+  /* Uploaded PDFs */
+  .uploaded-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 20px;
+    color: #fff;
+  }
+  
+  /* PDF List */
+  .pdf-list {
+    list-style: none;
+    padding: 0;
+    width: 400px;
+  }
+  
+  .pdf-item {
+    background: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* View Link */
+  .view-link {
+    color: #007bff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .view-link:hover {
+    color: #0056b3;
+  }
+  
+  /* Icons */
+  .icon {
+    font-size: 1.2rem;
+  }
+  

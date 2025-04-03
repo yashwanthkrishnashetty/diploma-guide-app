@@ -1,0 +1,74 @@
+/* General Button Styling */
+button {
+  background: linear-gradient(135deg, #6610f2, #4508a8);
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* Hover Effect */
+button:hover {
+  background: linear-gradient(135deg, #73f708, #32cd32);
+  transform: scale(1.08);
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Branch Selection Buttons */
+.branch-button {
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  font-size: 1rem;
+  padding: 14px 24px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 10px;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.branch-button:hover {
+  background: linear-gradient(135deg, #1e40af, #0a2472);
+  transform: scale(1.1);
+}
+
+/* Check Result Button */
+.result-button {
+  background: linear-gradient(135deg, #10b981, #059669);
+  font-size: 1rem;
+  padding: 14px 24px;
+  margin-top: 20px;
+  border-radius: 10px;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.result-button:hover {
+  background: linear-gradient(135deg, #059669, #036b52);
+  transform: scale(1.1);
+}
+
+
+/* Logout Button - Positioned at the Top Left */
+.logout-button {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  font-size: 1rem;
+  padding: 10px 20px;
+  position: absolute;
+  top: 15px;
+  left: 15px; /* Changed from right to left */
+  border-radius: 6px;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.logout-button:hover {
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
+  transform: scale(1.05);
+}
+
