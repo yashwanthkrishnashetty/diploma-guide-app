@@ -1,3 +1,3 @@
-const BACKEND_URL = "https://diploma-guide-app.onrender.com";
+const BACKEND = import.meta.env.VITE_BACKEND_URL;
 
-export default BACKEND_URL;
+export default BACKEND;
