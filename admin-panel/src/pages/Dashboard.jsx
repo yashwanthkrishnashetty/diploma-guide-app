@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { FaUpload, FaSignOutAlt, FaEye } from "react-icons/fa"; // Import icons
+import { FaUpload, FaSignOutAlt } from "react-icons/fa"; // Removed FaEye since it's not used now
 import "./Dashboard.css"; // Import CSS
+import BACKEND from "./config";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -10,20 +11,13 @@ const Dashboard = () => {
   const [branch, setBranch] = useState("");
   const [semester, setSemester] = useState("");
   const [name, setName] = useState("");
-  const [pdfs, setPdfs] = useState([]);
 
-  // List of branches
   const branches = ["Computer Science", "Automobile", "Mechanical", "Electronics & Communication"];
 
   useEffect(() => {
     if (!localStorage.getItem("admin")) {
       navigate("/");
     }
-
-    axios
-      .get("http://localhost:5000/pdfs")
-      .then((response) => setPdfs(response.data))
-      .catch((error) => console.error("Error fetching PDFs:", error));
   }, [navigate]);
 
   const handleUpload = async (e) => {
@@ -35,9 +29,12 @@ const Dashboard = () => {
     formData.append("name", name);
 
     try {
-      await axios.post("http://localhost:5000/upload", formData);
+      await axios.post(`${BACKEND}/upload`, formData);
       alert("PDF uploaded successfully!");
-      window.location.reload();
+      setFile(null);
+      setBranch("");
+      setSemester("");
+      setName("");
     } catch (error) {
       console.error(error);
       alert("Failed to upload PDF");
@@ -51,7 +48,7 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard-container">
-      <h2 className="dashboard-title">📚 Admin Dashboard</h2>
+      <h2 className="dashboard-title"> Admin Dashboard</h2>
       <button onClick={handleLogout} className="logout-button">
         <FaSignOutAlt className="icon" /> Logout
       </button>
@@ -62,7 +59,6 @@ const Dashboard = () => {
           <span>📁 Choose File</span>
         </label>
 
-        {/* Dropdown for selecting branch */}
         <select value={branch} onChange={(e) => setBranch(e.target.value)} required className="dropdown">
           <option value="" disabled>Select Branch</option>
           {branches.map((b, index) => (
@@ -70,24 +66,26 @@ const Dashboard = () => {
           ))}
         </select>
 
-        <input type="number" placeholder="Semester" value={semester} onChange={(e) => setSemester(e.target.value)} required />
-        <input type="text" placeholder="Subject Name" value={name} onChange={(e) => setName(e.target.value)} required />
+        <input
+          type="number"
+          placeholder="Semester"
+          value={semester}
+          onChange={(e) => setSemester(e.target.value)}
+          required
+        />
+
+        <input
+          type="text"
+          placeholder="Subject Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
+        />
+
         <button type="submit" className="upload-button">
           <FaUpload className="icon" /> Upload PDF
         </button>
       </form>
-
-      <h3 className="uploaded-title">📂 Uploaded PDFs</h3>
-      <ul className="pdf-list">
-        {pdfs.map((pdf, index) => (
-          <li key={index} className="pdf-item">
-            <span>{pdf.name}</span>
-            <a href={`http://localhost:5000${pdf.pdfPath}`} target="_blank" rel="noopener noreferrer" className="view-link">
-              <FaEye className="icon" /> View
-            </a>
-          </li>
-        ))}
-      </ul>
     </div>
   );
 };
