@@ -176,6 +176,8 @@ app.get("/pdfs", async (req, res) => {
 // 📌 Serve PDFs from 'uploads' folder
 app.use("/uploads", express.static(UPLOADS_DIR));
 
+app.get("/", (req, res) => res.send("Express App is Running"));
+
 // 📌 Start the Server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
